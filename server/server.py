@@ -17,4 +17,6 @@ def classify_image():
 if __name__ == '__main__':
     classifier_utils.load_classifier()
     classifier_utils.load_model()
-    app.run(port=8000)
+    port = 8000
+    print("Server started on the port: " + str(port))
+    app.run(port=port)

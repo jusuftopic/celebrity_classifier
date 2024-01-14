@@ -26,13 +26,14 @@ def get_all_images_paths():
 def get_cropped_image(path):
     image = cv2.imread(path)
     image_gray = cv2.cvtColor(image, cv2.COLOR_BGRA2GRAY)
-    image_faces = opencv_face.detectMultiScale(image_gray, 1.3, 5)
+    image_faces = opencv_face.detectMultiScale(image_gray, 1.1, 1)
     for(x, y, w, h) in image_faces:
         # Using grayscale images makes the face and eye detection process faster,
         # more reliable and robust
         face_gray = image_gray[y: y+h, x: x+w]
         eyes = opencv_eye.detectMultiScale(face_gray)
         if len(eyes) >= 2:
+            print(path)
             # if both eyes are detected, return color image, else null
             return image[y: y+h, x: x+w]
 

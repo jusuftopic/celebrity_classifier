@@ -126,7 +126,7 @@ for algorithm, params in model_properties.items():
     })
     best_estimators[algorithm] = gs_cv.best_estimator_
 
-data_frame = pd.DataFrame(model_scores, columns=['model','best_score','best_params'])
+data_frame = pd.DataFrame(model_scores, columns=['model', 'best_score', 'best_params'])
 print(data_frame)
 
 print('SVM score: ' + str(best_estimators['svm'].score(model_x_test, model_y_test)))

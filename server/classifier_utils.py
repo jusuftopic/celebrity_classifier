@@ -110,4 +110,4 @@ def load_model():
 if __name__ == '__main__':
     load_classifier()
     load_model()
-    print(classify_image(None, '../Dataset/Cropped/Ronaldo/Ronaldo4.jpg'))
+    print(classify_image(None, '../Dataset/Cropped/Ronaldo/Ronaldo26.jpg'))
