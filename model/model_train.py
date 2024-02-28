@@ -84,10 +84,6 @@ for celebrity_name, img_paths in images_paths_dict.items():
 # Celebrity Classifier training
 model_x_train, model_x_test, model_y_train, model_y_test = train_test_split(model_x, model_y, random_state=0)
 
-# SVM
-pipeline = Pipeline([('scaler', StandardScaler()), ('svc', SVC(kernel='rbf', C=10))])
-pipeline.fit(model_x_train, model_y_train)
-print(classification_report(model_y_test, pipeline.predict(model_x_test)))
 
 # GridSearch CV
 model_properties = {
@@ -132,10 +128,3 @@ print(data_frame)
 print('SVM score: ' + str(best_estimators['svm'].score(model_x_test, model_y_test)))
 print('Logistic regression score: ' + str(best_estimators['logistic_regression'].score(model_x_test, model_y_test)))
 print('Random forest score: ' + str(best_estimators['random_forest'].score(model_x_test, model_y_test)))
-
-# SVM performs best, therefore this model will be saved
-best_alg = best_estimators['svm']
-joblib.dump(best_alg, 'model.pkl')
-
-with open('classifier.json', 'w') as f:
-    json.dump(celebrity_name_indexes, f)
