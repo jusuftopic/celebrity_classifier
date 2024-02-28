@@ -1,6 +1,4 @@
 import os
-import joblib
-import json
 import cv2
 import numpy as np
 import pandas as pd
@@ -8,11 +6,9 @@ import pywt
 from sklearn import svm
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import classification_report
 from sklearn.model_selection import train_test_split, GridSearchCV
-from sklearn.pipeline import Pipeline, make_pipeline
+from sklearn.pipeline import make_pipeline
 from sklearn.preprocessing import StandardScaler
-from sklearn.svm import SVC
 
 
 def get_images_paths():
